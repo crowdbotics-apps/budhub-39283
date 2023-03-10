@@ -19,9 +19,9 @@ class User(AbstractUser):
     everything that relates with an `User` is represented by this model.
     """
     name = models.CharField(null=True,blank=True,max_length=255,)
-    email = models.EmailField(max_length=254,null=True,blank=True,)
-    password = models.CharField(max_length=256,null=True,blank=True,)
+    email = models.EmailField(null=True,blank=True,max_length=254,)
+    password = models.CharField(null=True,blank=True,max_length=256,)
     created = models.DateField(null=True,blank=True,)
-    company = models.OneToOneField("budhub.Company",on_delete=models.CASCADE,null=True,blank=True,related_name="user_company",)
+    company = models.OneToOneField("budhub.Company",null=True,blank=True,on_delete=models.CASCADE,related_name="user_company",)
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})
