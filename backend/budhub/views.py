@@ -1,4 +1,4 @@
-from .models import Customers, Product_types, Inventory, Company, Products, Assets
+from .models import Product_types, Orders, Products, Company, Assets, Customers, Inventory
 from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 

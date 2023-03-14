@@ -3,6 +3,7 @@ from django.db import models
 class Company(models.Model):
     'Generated Model'
     name = models.CharField(max_length=256,)
+    type = models.OneToOneField("budhub.Company_type",on_delete=models.CASCADE,null=True,blank=True,related_name="company_type",)
 class Inventory(models.Model):
     'Generated Model'
     product = models.OneToOneField("budhub.Products",null=True,blank=True,on_delete=models.CASCADE,related_name="inventory_product",)
@@ -24,5 +25,8 @@ class Product_types(models.Model):
 class Orders(models.Model):
     'Generated Model'
     customer = models.OneToOneField("budhub.Customers",on_delete=models.CASCADE,related_name="orders_customer",)
+class Company_type(models.Model):
+    'Generated Model'
+    type = models.CharField(max_length=256,)
 
 # Create your models here.
