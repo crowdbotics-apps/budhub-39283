@@ -50,5 +50,8 @@ class Units(models.Model):
     unit = models.CharField(max_length=256,)
     abbreviation = models.CharField(max_length=10,)
     qty_unit = models.FloatField()
+class Line_items(models.Model):
+    'Generated Model'
+    order = models.OneToOneField("budhub.Orders",on_delete=models.CASCADE,related_name="line_items_order",)
 
 # Create your models here.

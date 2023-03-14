@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from budhub.models import Assets,Company,Company_type,Customers,Inventory,Orders,Product_catalog,Product_types,Products,Units
+from budhub.models import Assets,Company,Company_type,Customers,Inventory,Line_items,Orders,Product_catalog,Product_types,Products,Units
 
 class CompanySerializer(serializers.ModelSerializer):
 
@@ -59,4 +59,10 @@ class UnitsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Units
+        fields = "__all__"
+
+class Line_itemsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Line_items
         fields = "__all__"
