@@ -12,6 +12,8 @@ class Inventory(models.Model):
     status = models.CharField(null=True,blank=True,max_length=256,)
     qty = models.FloatField(null=True,blank=True,)
     unit = models.OneToOneField("budhub.Units",null=True,blank=True,on_delete=models.CASCADE,related_name="inventory_unit",)
+    package = models.OneToOneField("budhub.Line_items",on_delete=models.CASCADE,null=True,blank=True,related_name="inventory_package",)
+    order = models.ForeignKey("budhub.Orders",on_delete=models.CASCADE,null=True,blank=True,related_name="inventory_order",)
 class Assets(models.Model):
     'Generated Model'
     product = models.OneToOneField("budhub.Products",on_delete=models.CASCADE,related_name="assets_product",)
@@ -19,6 +21,8 @@ class Assets(models.Model):
     status = models.CharField(null=True,blank=True,max_length=256,)
     qty = models.FloatField(null=True,blank=True,)
     unit = models.OneToOneField("budhub.Units",null=True,blank=True,on_delete=models.CASCADE,related_name="assets_unit",)
+    package = models.OneToOneField("budhub.Line_items",on_delete=models.CASCADE,null=True,blank=True,related_name="assets_package",)
+    order = models.ForeignKey("budhub.Orders",on_delete=models.CASCADE,null=True,blank=True,related_name="assets_order",)
 class Products(models.Model):
     'Generated Model'
     company = models.OneToOneField("budhub.Company",null=True,blank=True,on_delete=models.CASCADE,related_name="products_company",)
