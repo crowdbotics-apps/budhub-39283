@@ -11,14 +11,14 @@ class Inventory(models.Model):
     source = models.OneToOneField("budhub.Inventory",null=True,blank=True,on_delete=models.CASCADE,related_name="inventory_source",)
     status = models.CharField(null=True,blank=True,max_length=256,)
     qty = models.FloatField(null=True,blank=True,)
-    unit = models.OneToOneField("budhub.Units",on_delete=models.CASCADE,null=True,blank=True,related_name="inventory_unit",)
+    unit = models.OneToOneField("budhub.Units",null=True,blank=True,on_delete=models.CASCADE,related_name="inventory_unit",)
 class Assets(models.Model):
     'Generated Model'
     product = models.OneToOneField("budhub.Products",on_delete=models.CASCADE,related_name="assets_product",)
     source = models.OneToOneField("budhub.Assets",null=True,blank=True,on_delete=models.CASCADE,related_name="assets_source",)
     status = models.CharField(null=True,blank=True,max_length=256,)
     qty = models.FloatField(null=True,blank=True,)
-    unit = models.OneToOneField("budhub.Units",on_delete=models.CASCADE,null=True,blank=True,related_name="assets_unit",)
+    unit = models.OneToOneField("budhub.Units",null=True,blank=True,on_delete=models.CASCADE,related_name="assets_unit",)
 class Products(models.Model):
     'Generated Model'
     company = models.OneToOneField("budhub.Company",null=True,blank=True,on_delete=models.CASCADE,related_name="products_company",)
