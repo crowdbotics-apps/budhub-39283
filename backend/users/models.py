@@ -24,6 +24,6 @@ class User(AbstractUser):
     created = models.DateField(null=True,blank=True,)
     company = models.OneToOneField("budhub.Company",null=True,blank=True,on_delete=models.CASCADE,related_name="user_company",)
     invoice = models.PositiveIntegerField(null=True,blank=True,)
-    plan = models.CharField(max_length=256,null=True,blank=True,)
+    plan = models.CharField(null=True,blank=True,max_length=256,)
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})

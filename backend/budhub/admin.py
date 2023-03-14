@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Assets,Company,Company_type,Customers,Inventory,Orders,Product_types,Products
+from .models import Assets,Company,Company_type,Customers,Inventory,Orders,Product_catalog,Product_types,Products
 admin.site.register(Company)
 admin.site.register(Inventory)
 admin.site.register(Assets)
@@ -8,5 +8,6 @@ admin.site.register(Customers)
 admin.site.register(Product_types)
 admin.site.register(Orders)
 admin.site.register(Company_type)
+admin.site.register(Product_catalog)
 
 # Register your models here.

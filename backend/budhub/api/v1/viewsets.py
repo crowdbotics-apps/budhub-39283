@@ -1,6 +1,6 @@
 from rest_framework import authentication
-from budhub.models import Assets,Company,Company_type,Customers,Inventory,Orders,Product_types,Products
-from .serializers import AssetsSerializer,CompanySerializer,Company_typeSerializer,CustomersSerializer,InventorySerializer,OrdersSerializer,Product_typesSerializer,ProductsSerializer
+from budhub.models import Assets,Company,Company_type,Customers,Inventory,Orders,Product_catalog,Product_types,Products
+from .serializers import AssetsSerializer,CompanySerializer,Company_typeSerializer,CustomersSerializer,InventorySerializer,OrdersSerializer,Product_catalogSerializer,Product_typesSerializer,ProductsSerializer
 from rest_framework import viewsets
 
 class CompanyViewSet(viewsets.ModelViewSet):
@@ -42,3 +42,8 @@ class Company_typeViewSet(viewsets.ModelViewSet):
     serializer_class = Company_typeSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Company_type.objects.all()
+
+class Product_catalogViewSet(viewsets.ModelViewSet):
+    serializer_class = Product_catalogSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Product_catalog.objects.all()

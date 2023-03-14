@@ -3,17 +3,20 @@ from django.db import models
 class Company(models.Model):
     'Generated Model'
     name = models.CharField(max_length=256,)
-    type = models.OneToOneField("budhub.Company_type",on_delete=models.CASCADE,null=True,blank=True,related_name="company_type",)
+    type = models.OneToOneField("budhub.Company_type",null=True,blank=True,on_delete=models.CASCADE,related_name="company_type",)
 class Inventory(models.Model):
     'Generated Model'
     product = models.OneToOneField("budhub.Products",null=True,blank=True,on_delete=models.CASCADE,related_name="inventory_product",)
 class Assets(models.Model):
     'Generated Model'
     product = models.OneToOneField("budhub.Products",on_delete=models.CASCADE,related_name="assets_product",)
+    source = models.CharField(max_length=256,null=True,blank=True,)
 class Products(models.Model):
     'Generated Model'
     company = models.OneToOneField("budhub.Company",null=True,blank=True,on_delete=models.CASCADE,related_name="products_company",)
     type = models.OneToOneField("budhub.Product_types",null=True,blank=True,on_delete=models.CASCADE,related_name="products_type",)
+    source = models.CharField(max_length=256,null=True,blank=True,)
+    catalog = models.OneToOneField("budhub.Product_catalog",on_delete=models.CASCADE,null=True,blank=True,related_name="products_catalog",)
 class Customers(models.Model):
     'Generated Model'
     company = models.OneToOneField("budhub.Company",on_delete=models.CASCADE,related_name="customers_company",)
@@ -28,5 +31,8 @@ class Orders(models.Model):
 class Company_type(models.Model):
     'Generated Model'
     type = models.CharField(max_length=256,)
+class Product_catalog(models.Model):
+    'Generated Model'
+    catalog = models.CharField(max_length=256,)
 
 # Create your models here.
